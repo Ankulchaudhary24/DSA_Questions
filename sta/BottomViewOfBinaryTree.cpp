@@ -47,7 +47,6 @@ vector <int> bottomView(Node *root) {
         //push the root node in the queue
         q.push(make_pair(root,0));
         
-        
         //Traverse the tree in level order
         while(!q.empty()){
             
