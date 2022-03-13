@@ -24,6 +24,8 @@ Output: 4
 
 */
 
+//Recursive Solution taking the O(n2) time
+
 int height(struct Node* node){
         if(node ==NULL)
         return 0;
@@ -46,4 +48,33 @@ int height(struct Node* node){
         int dia = max(h+1,max(left,right));
         return dia;
         
+    }
+
+//Recursive Solution taking the O(n) time
+
+//In the pair the first int is for the diameter and second int is for the height
+
+pair<int,int> diaHeightTogether(struct Node* node){
+        if(node ==NULL)
+        {
+            pair<int,int> p = make_pair(0,0); // if the node is null both height and diameter will be 0
+            return p;
+        }
+        
+        pair<int,int> left = diaHeightTogether(node->left); //calling for the diameter of left part
+        pair<int,int> right= diaHeightTogether(node->right); //calling for the diameter of the right part
+        
+        int opt1 = left.first;  // for the diameter of the left part
+        int opt2 = right.first; // for the diameter of the right part
+        int opt3 = left.second + right.second + 1; //for the diameter of the tree cosisting if the root node
+       
+        pair<int,int> ans;
+        ans.first = max(opt3,max(opt1,opt2));  // ans.first is for the diameter of the tree
+        ans.second = max(left.second,right.second)+1; //ans.second is for the height of the tree
+        return ans;
+        
+    }
+    
+    int diameter(Node* root) {
+        return diaHeightTogether(root).first;
     }
