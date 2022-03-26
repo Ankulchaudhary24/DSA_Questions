@@ -2,6 +2,10 @@
 Given a Directed Acyclic Graph (DAG) with V
 vertices and E edges, Find any Topological Sorting of that Graph.
 */
+
+//The Kahn's Algorithm can be used to check whether the graph contains cycle or not
+// as the last if the ans array size is not equal to the nodes or the vertices
+// then it means that the graph contains the cycle.
 vector<int> topoSort(int V, vector<int> adj[]) 
 	{
 	    vector<int> indegree(V,0);
