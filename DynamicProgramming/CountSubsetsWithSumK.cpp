@@ -8,6 +8,18 @@ are there such that the sum of chosen elements is equal to the target number “
 //Similar to the approach of the subset sum
 //Here only the space optmized approach is given
 
+//An extra edge case should be handled if the array elements are 0
+/*
+if(ind == 0){
+            if(target==0 && arr[0]==0)
+                return 2;
+            if(target==0 || target == arr[0])
+                return 1;
+            return 0;
+    }
+ 
+*/
+
 int findWays(vector<int> &num, int k)
 {
     int n = num.size();
